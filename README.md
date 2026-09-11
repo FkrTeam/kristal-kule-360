@@ -44,6 +44,7 @@ JSON biçimi:
 ```
 
 `icon` değerleri: `genel`, `konut`, `hastane`, `okul`, `avm`, `ulasim`, `park`, `cami`, `spor`, `deniz`, `otopark`.
+`color` pinin rengidir (herhangi bir CSS rengi, ör. `#f39c12`); yoksa ikonun varsayılan rengi kullanılır.
 Yeni ikon eklemek için `src/scripts/icons.ts` dosyasına bir SVG yolu ekleyin; düzenleme modunda otomatik görünür.
 
 `yaw`: derece, 0 = panorama merkezi, pozitif = sağ. `pitch`: derece, 0 = ufuk, pozitif = yukarı.

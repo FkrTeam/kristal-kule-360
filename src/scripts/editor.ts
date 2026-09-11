@@ -5,7 +5,7 @@
  */
 import type { PanoramaViewer, HotspotDef } from './viewer/PanoramaViewer';
 import { $ } from './utils/dom';
-import { ICONS, DEFAULT_ICON, iconSvg } from './icons';
+import { ICONS, DEFAULT_ICON, iconSvg, iconColor } from './icons';
 import { withBase } from './utils/base';
 
 const slug = (s: string) =>
@@ -147,7 +147,7 @@ export function initEditor(viewer: PanoramaViewer, scene: string, initial: Hotsp
     e.preventDefault();
     const label = nameInput.value.trim();
     if (!pending || !label) { nameInput.focus(); return; }
-    const def: HotspotDef = { id: uniqueId(slug(label)), yaw: round(pending.yaw), pitch: round(pending.pitch), label, icon };
+    const def: HotspotDef = { id: uniqueId(slug(label)), yaw: round(pending.yaw), pitch: round(pending.pitch), label, icon, color: iconColor(icon) };
     const text = textInput.value.trim();
     if (text) def.text = text;
     defs.push(def);

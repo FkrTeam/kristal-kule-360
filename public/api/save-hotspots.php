@@ -63,6 +63,7 @@ foreach ($data as $h) {
         'label' => cut(strip_tags((string)$h['label']), 120),
     ];
     if (!empty($h['icon'])) $item['icon'] = preg_replace('/[^a-z0-9_-]/i', '', (string)$h['icon']);
+    if (!empty($h['color'])) $item['color'] = substr(preg_replace('/[^#a-z0-9(),.%\s-]/i', '', (string)$h['color']), 0, 32);
     if (!empty($h['text'])) $item['text'] = cut(strip_tags((string)$h['text']), 2000);
     if (isset($h['view']) && is_array($h['view'])) {
         $v = [];

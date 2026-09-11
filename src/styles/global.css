@@ -49,14 +49,13 @@ html.is-editing #stage-canvas { cursor: crosshair; }
   background: #fff; color: #1c1c1e; font-size: 13px; font-weight: 500; line-height: 1.25; text-align: center;
   text-wrap: balance; transition: transform 200ms var(--ease-out-expo), background 200ms;
 }
-.hotspot-pin { width: 30px; height: 40px; display: block; }
+.hotspot-pin { width: 22px; height: 30px; display: block; }
 .hotspot-pin-body { fill: var(--pin); }
 .hotspot:hover .hotspot-label, .hotspot.is-active .hotspot-label { transform: translateY(-2px); }
 .hotspot:hover, .hotspot.is-active { filter: drop-shadow(0 4px 8px rgb(0 0 0 / .45)); }
 .hotspot.is-active .hotspot-label { background: var(--color-brass-2); }
 @media (max-width: 640px) {
   .hotspot-label { font-size: 12px; padding: 5px 8px; max-width: 140px; }
-  .hotspot-pin { width: 26px; height: 35px; }
 }
 
 /* Chrome */
