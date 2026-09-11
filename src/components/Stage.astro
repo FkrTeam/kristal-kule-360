@@ -1,0 +1,23 @@
+---
+/**
+ * The fixed full-viewport stack behind all content:
+ *   1. LQIP  (inline data URI, paints with the HTML - zero requests)
+ *   2. preview <img>  (66 KB WebP, preloaded, this is the LCP element)
+ *   3. <canvas>       (fades in over the preview once Three.js wraps the same image on a sphere)
+ *   4. vignette + hotspot label layer
+ */
+interface Props {
+  lqip: string;
+  preview: string;
+  alt: string;
+}
+const { lqip, preview, alt } = Astro.props;
+---
+
+<div id="stage" aria-hidden="false">
+  <img id="stage-lqip" src={lqip} alt="" aria-hidden="true" width="64" height="32" />
+  <img id="stage-preview" src={preview} alt={alt} width="1024" height="512" fetchpriority="high" decoding="async" />
+  <canvas id="stage-canvas" aria-label="Interactive 360° panorama" role="img"></canvas>
+  <div id="stage-vignette"></div>
+  <div id="hotspot-labels" hidden></div>
+</div>

@@ -1,0 +1,12 @@
+node_modules/
+dist/
+.astro/
+.env
+.env.local
+source-panos/
+public/decoders/
+*.log
+.DS_Store
+public/fonts/
+_legacy/
+.claude/

@@ -1,0 +1,35 @@
+{
+  "id": "kristal-kule",
+  "source": {
+    "width": 12000,
+    "height": 6000
+  },
+  "lqip": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAA4KCw0LCQ4NDA0QDw4RFiQXFhQUFiwgIRokNC43NjMuMjI6QVNGOj1OPjIySGJJTlZYXV5dOEVmbWVabFNbXVn/2wBDAQ8QEBYTFioXFypZOzI7WVlZWVlZWVlZWVlZWVlZWVlZWVlZWVlZWVlZWVlZWVlZWVlZWVlZWVlZWVlZWVlZWVn/wAARCAAgAEADASIAAhEBAxEB/8QAGQAAAwEBAQAAAAAAAAAAAAAAAwQFAgYA/8QAJhAAAgICAQMEAgMAAAAAAAAAAQIAAwQREgUhQRMUFTEiUTJhcf/EABgBAAIDAAAAAAAAAAAAAAAAAAACAQQF/8QAGREBAAMBAQAAAAAAAAAAAAAAAAEREiEx/9oADAMBAAIRAxEAPwCErbhF7yh8Uyt3m06fpvsTR4oWVpxzYdAQ9vT7KxtlMp4uN6Tg7EbyA1qgHXaJM9NHjlHXidEQTHUuXYPJu2os3TWZu0fhbSHs4zIt3LHw7s31PHotgb6kjQl2W7H+X3EcjItDAV2EkzV9FisVp26/s+Iv7d+O22GEy9L8xAoyrl0rOd/7DJddYABcd/rcmF3rcckJPiN013Pp+Ov7k6oZvwx619doVydHzNvmtVZxZ9Ra7mrryfYHeDvbHsbnY43DQzS5g5bk8mO18R/IyOK7E5YZ1VI2LAdeIzRn+6sVgfxXxEmZNUP/2Q==",
+  "tiers": [
+    {
+      "width": 1024,
+      "height": 512,
+      "webp": "1024.webp",
+      "webpBytes": 66308
+    },
+    {
+      "width": 2048,
+      "height": 1024,
+      "webp": "2048.webp",
+      "webpBytes": 271218
+    },
+    {
+      "width": 4096,
+      "height": 2048,
+      "webp": "4096.webp",
+      "webpBytes": 1040812
+    },
+    {
+      "width": 8192,
+      "height": 4096,
+      "webp": "8192.webp",
+      "webpBytes": 3553490
+    }
+  ],
+  "generated": 1789123758
+}

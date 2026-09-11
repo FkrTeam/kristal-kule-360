@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://kristalkule.com/sitemap.xml

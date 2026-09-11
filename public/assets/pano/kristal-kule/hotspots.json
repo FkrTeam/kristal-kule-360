@@ -1,0 +1,37 @@
+[
+  {
+    "id": "kristal-kule",
+    "yaw": -1.1,
+    "pitch": -16.5,
+    "label": "Kristal Kule",
+    "icon": "genel"
+  },
+  {
+    "id": "autopia-otomobil-avm",
+    "yaw": -13.4,
+    "pitch": -36.7,
+    "label": "Autopia Otomobil AVM",
+    "icon": "avm"
+  },
+  {
+    "id": "metrobus-duragi",
+    "yaw": -59.2,
+    "pitch": -19.8,
+    "label": "Metrobüs Durağı",
+    "icon": "ulasim"
+  },
+  {
+    "id": "tem-hadimkoy-baglanti-yolu",
+    "yaw": 17.2,
+    "pitch": -16.4,
+    "label": "TEM Hadımköy Bağlantı Yolu",
+    "icon": "ulasim"
+  },
+  {
+    "id": "tuyap-fuar-merkezi",
+    "yaw": 21.7,
+    "pitch": -9.5,
+    "label": "Tüyap Fuar Merkezi",
+    "icon": "genel"
+  }
+]

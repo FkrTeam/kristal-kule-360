@@ -1,0 +1,44 @@
+---
+import '../styles/global.css';
+import { site } from '../data/site';
+import { withBase } from '../scripts/utils/base';
+
+interface Props {
+  title?: string;
+  description?: string;
+  /** URL of the LCP preview image, preloaded with high priority. */
+  preloadImage?: string;
+}
+
+const { title = site.title, description = site.description, preloadImage } = Astro.props;
+const canonical = new URL(Astro.url.pathname, Astro.site ?? 'https://kristalkule.com').href;
+const og = new URL(withBase(`assets/pano/${site.scene}/og.jpg`), Astro.site ?? 'https://kristalkule.com').href;
+const fontUrl = withBase('fonts/inter-latin-wght.woff2');
+const fontFace = `@font-face{font-family:"Inter Variable";font-style:normal;font-display:swap;font-weight:100 900;src:url("${fontUrl}") format("woff2-variations")}`;
+---
+
+<html lang={site.locale}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+    <meta name="theme-color" content={site.themeColor} />
+    <meta name="color-scheme" content="dark" />
+    <link rel="icon" href={withBase('favicon.svg')} type="image/svg+xml" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={og} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="preload" href={fontUrl} as="font" type="font/woff2" crossorigin />
+    <style set:html={fontFace}></style>
+    {preloadImage && <link rel="preload" href={preloadImage} as="image" fetchpriority="high" />}
+    {import.meta.env.PUBLIC_ASSET_BASE && <link rel="preconnect" href={import.meta.env.PUBLIC_ASSET_BASE} crossorigin />}
+  </head>
+  <body>
+    <slot />
+  </body>
+</html>

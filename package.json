@@ -1,0 +1,34 @@
+{
+  "name": "kristalkule-360",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Kristal Kule - 360 panorama goruntuleyici",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro check --minimumSeverity error && astro build && node scripts/relativize.mjs",
+    "build:fast": "astro build && node scripts/relativize.mjs",
+    "preview": "astro preview",
+    "postinstall": "node scripts/copy-decoders.mjs",
+    "pano": "python scripts/build-pano.py",
+    "pano:all": "python scripts/build-pano.py --all",
+    "glb": "node scripts/optimize-glb.mjs",
+    "analyze": "node scripts/bundle-report.mjs",
+    "build:compressed": "npm run build && node scripts/precompress.mjs"
+  },
+  "dependencies": {
+    "@fontsource-variable/inter": "^5.2.8",
+    "three": "^0.186.0"
+  },
+  "devDependencies": {
+    "@astrojs/check": "^0.9.7",
+    "@tailwindcss/vite": "^4.3.3",
+    "@types/three": "^0.185.4",
+    "astro": "^7.3.2",
+    "tailwindcss": "^4.3.3",
+    "typescript": "^5.9.0"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

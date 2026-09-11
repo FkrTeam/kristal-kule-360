@@ -1,0 +1,65 @@
+---
+import Base from '../layouts/Base.astro';
+import Stage from '../components/Stage.astro';
+import { site } from '../data/site';
+import { panoUrl } from '../scripts/loading/manifest';
+import manifest from '../../public/assets/pano/kristal-kule/manifest.json';
+
+const previewTier = manifest.tiers[0]!;
+const preview = panoUrl(manifest.id, previewTier.webp);
+---
+
+<Base preloadImage={preview}>
+  <Stage lqip={manifest.lqip} preview={preview} alt={`${site.name} - 360° havadan panorama`} />
+
+  <div class="topbar">
+    <span class="wordmark">{site.name} <em>360°</em></span>
+    <div class="topbar-actions">
+      <button id="gyro-btn" type="button" class="btn" aria-pressed="false" hidden title="Jiroskop">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></svg>
+      </button>
+      <button id="fs-btn" type="button" class="btn" hidden title="Tam ekran">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5"/></svg>
+      </button>
+    </div>
+  </div>
+
+  <p id="hint" class="hint" aria-hidden="true">Sürükleyerek etrafa bakın · Tekerlek ile yakınlaştırın</p>
+
+  <aside id="info" class="info" hidden>
+    <button id="info-close" type="button" class="info-close" aria-label="Kapat">×</button>
+    <div class="info-head"><span id="info-icon" class="info-icon"></span><span id="info-kind" class="info-kind"></span></div>
+    <strong id="info-title"></strong>
+    <p id="info-text" hidden></p>
+  </aside>
+
+  <aside id="editor" class="editor" hidden>
+    <header>
+      <strong>Düzenleme modu</strong>
+      <span id="editor-status"></span>
+    </header>
+    <p class="editor-help">Panoramada bir noktaya tıklayın, ad ve ikon seçin. İşaretleri taşımak için silip yeniden ekleyin.</p>
+    <form id="editor-form" class="editor-form" hidden>
+      <div class="editor-form-head"><strong>Yeni işaret</strong><span id="editor-form-pos"></span></div>
+      <input id="editor-name" type="text" placeholder="Ad (ör. Şehir Hastanesi)" autocomplete="off" required />
+      <div id="editor-icons" class="editor-icons"></div>
+      <textarea id="editor-text" rows="2" placeholder="Açıklama (isteğe bağlı)"></textarea>
+      <div class="editor-buttons">
+        <button type="submit" class="btn btn-primary">Ekle</button>
+        <button id="editor-cancel" type="button" class="btn">İptal</button>
+      </div>
+    </form>
+    <div id="editor-list" class="editor-list"></div>
+    <div class="editor-buttons">
+      <button id="editor-save" type="button" class="btn btn-primary">Kaydet</button>
+      <button id="editor-copy" type="button" class="btn">Kopyala</button>
+      <button id="editor-download" type="button" class="btn">İndir</button>
+      <button id="editor-reset" type="button" class="btn">Dosyaya dön</button>
+      <button id="editor-clear" type="button" class="btn">Temizle</button>
+    </div>
+    <textarea id="editor-json" spellcheck="false" readonly></textarea>
+    <p class="editor-help"><strong>Kaydet</strong> doğrudan <code>assets/pano/{site.scene}/hotspots.json</code> dosyasına yazar (geliştirmede diske, canlı sitede <code>api/save-hotspots.php</code> üzerinden şifreyle). Kopyala / İndir yedek yollardır.</p>
+  </aside>
+
+  <script src="../scripts/main.ts"></script>
+</Base>
