@@ -53,7 +53,8 @@ html.is-editing #stage-canvas { cursor: crosshair; }
 .hotspot-pin-body { fill: var(--pin); }
 .hotspot:hover .hotspot-label, .hotspot.is-active .hotspot-label { transform: translateY(-2px); }
 .hotspot:hover, .hotspot.is-active { filter: drop-shadow(0 4px 8px rgb(0 0 0 / .45)); }
-.hotspot.is-active .hotspot-label { background: var(--color-brass-2); }
+/* Active pin: kristalkule.com brand blue */
+.hotspot.is-active .hotspot-label { background: #2e9ad8; color: #fff; }
 @media (max-width: 640px) {
   .hotspot-label { font-size: 12px; padding: 5px 8px; max-width: 140px; }
 }
@@ -83,18 +84,6 @@ html.is-editing #stage-canvas { cursor: crosshair; }
   transition: opacity 600ms var(--ease-out-expo);
 }
 .hint.is-hidden { opacity: 0; }
-
-.info {
-  position: fixed; left: 20px; bottom: 20px; z-index: 10; max-width: min(360px, calc(100vw - 40px));
-  padding: 16px 40px 16px 18px; border-radius: 12px;
-  background: rgb(11 12 14 / .7); border: 1px solid rgb(239 234 226 / .12); backdrop-filter: blur(12px);
-}
-.info-head { display: flex; align-items: center; gap: 8px; margin-bottom: 6px; color: var(--color-brass); }
-.info-kind { font-size: 10px; letter-spacing: .24em; text-transform: uppercase; }
-.info strong { display: block; font-size: 13px; letter-spacing: .2em; text-transform: uppercase; color: var(--color-brass-2); }
-.info p { margin-top: 8px; font-size: 14px; line-height: 1.5; color: var(--color-bone-2); }
-.info-close { position: absolute; top: 8px; right: 10px; font-size: 18px; line-height: 1; color: var(--color-mute); cursor: pointer; }
-.info-close:hover { color: var(--color-bone); }
 
 /* Editor (?edit) */
 .editor {

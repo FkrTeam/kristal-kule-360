@@ -9,7 +9,6 @@ import { supports } from './utils/supports';
 import { $, idle, decodeImage, readParams } from './utils/dom';
 import { panoUrl } from './loading/manifest';
 import { site } from '../data/site';
-import { iconSvg, iconLabel } from './icons';
 import type { HotspotDef, PanoramaViewer } from './viewer/PanoramaViewer';
 
 async function loadHotspots(scene: string): Promise<HotspotDef[]> {
@@ -33,7 +32,6 @@ async function boot(): Promise<void> {
   const canvas = $<HTMLCanvasElement>('#stage-canvas');
   const labelRoot = $('#hotspot-labels');
   const hint = $('#hint');
-  const info = $('#info');
   const gyroBtn = $<HTMLButtonElement>('#gyro-btn');
   const fsBtn = $<HTMLButtonElement>('#fs-btn');
 
@@ -60,19 +58,7 @@ async function boot(): Promise<void> {
   viewer.on('hotspot', (h) => {
     viewer.flyTo(h.view ?? { yaw: h.yaw, pitch: h.pitch, fov: 50 });
     viewer.hotspots.setSelected(h.id);
-    showInfo(h);
   });
-  $('#info-close').addEventListener('click', () => { info.hidden = true; viewer.hotspots.setSelected(null); });
-
-  function showInfo(h: HotspotDef): void {
-    $('#info-icon').innerHTML = iconSvg(h.icon, 18);
-    $('#info-kind').textContent = iconLabel(h.icon);
-    $('#info-title').textContent = h.label;
-    const text = $('#info-text');
-    text.textContent = h.text ?? '';
-    text.hidden = !h.text;
-    info.hidden = false;
-  }
 
   gyroBtn.hidden = !(quality.isMobile && supports.gyro());
   gyroBtn.addEventListener('click', async () => {
