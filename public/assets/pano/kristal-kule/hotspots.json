@@ -13,7 +13,7 @@
     "pitch": -36.7,
     "label": "Autopia Otomobil AVM",
     "icon": "avm",
-    "color": "#f39c12"
+    "color": "#f8a805"
   },
   {
     "id": "metrobus-duragi",
@@ -21,7 +21,7 @@
     "pitch": -19.8,
     "label": "Metrobüs Durağı",
     "icon": "ulasim",
-    "color": "#9b30c9"
+    "color": "#975099"
   },
   {
     "id": "tem-hadimkoy-baglanti-yolu",
@@ -29,7 +29,7 @@
     "pitch": -16.4,
     "label": "TEM Hadımköy Bağlantı Yolu",
     "icon": "ulasim",
-    "color": "#9b30c9"
+    "color": "#9bc419"
   },
   {
     "id": "tuyap-fuar-merkezi",
@@ -37,6 +37,6 @@
     "pitch": -9.5,
     "label": "Tüyap Fuar Merkezi",
     "icon": "genel",
-    "color": "#8e44ad"
+    "color": "#ba4089"
   }
 ]
