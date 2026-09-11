@@ -34,18 +34,31 @@ html.is-editing #stage-canvas { cursor: crosshair; }
     linear-gradient(to bottom, rgb(0 0 0 / 0.35), transparent 22%, transparent 80%, rgb(0 0 0 / 0.45));
 }
 
-/* Hotspot labels */
+/* Hotspot pins (map-pin + white label box, see design reference) */
 #hotspot-labels { position: absolute; inset: 0; pointer-events: none; overflow: hidden; }
-.hotspot-label {
-  position: absolute; left: 0; top: 0; pointer-events: auto;
-  font-size: 11px; letter-spacing: .16em; text-transform: uppercase; color: var(--color-bone);
-  background: rgb(11 12 14 / .55); border: 1px solid rgb(201 168 106 / .35);
-  padding: 6px 10px; border-radius: 999px; backdrop-filter: blur(6px);
-  white-space: nowrap; transition: background 200ms; cursor: pointer;
+.hotspot {
+  position: absolute; left: 0; top: 0; pointer-events: auto; cursor: pointer;
+  display: flex; flex-direction: column; align-items: center; gap: 4px;
+  /* anchor: the pin tip sits exactly on the projected point */
+  margin-left: -80px; width: 160px; margin-top: -1px; translate: 0 -100%;
+  filter: drop-shadow(0 2px 4px rgb(0 0 0 / .35));
+  transition: filter 200ms;
 }
-.hotspot-label:hover { background: rgb(201 168 106 / .25); }
-.hotspot-label { display: inline-flex; align-items: center; gap: 6px; }
-.hotspot-label svg { color: var(--color-brass-2); flex: none; }
+.hotspot-label {
+  max-width: 160px; padding: 6px 10px; border-radius: 7px;
+  background: #fff; color: #1c1c1e; font-size: 13px; font-weight: 500; line-height: 1.25; text-align: center;
+  text-wrap: balance; transition: transform 200ms var(--ease-out-expo), background 200ms;
+}
+.hotspot-pin { width: 30px; height: 40px; display: block; }
+.hotspot-pin-body { fill: var(--pin); }
+.hotspot-pin-icon { fill: none; stroke: var(--pin); stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.hotspot:hover .hotspot-label, .hotspot.is-active .hotspot-label { transform: translateY(-2px); }
+.hotspot:hover, .hotspot.is-active { filter: drop-shadow(0 4px 8px rgb(0 0 0 / .45)); }
+.hotspot.is-active .hotspot-label { background: var(--color-brass-2); }
+@media (max-width: 640px) {
+  .hotspot-label { font-size: 12px; padding: 5px 8px; max-width: 140px; }
+  .hotspot-pin { width: 26px; height: 35px; }
+}
 
 /* Chrome */
 .topbar { position: fixed; inset: 0 0 auto 0; z-index: 10; display: flex; align-items: center; justify-content: space-between; padding: 18px 20px; pointer-events: none; }

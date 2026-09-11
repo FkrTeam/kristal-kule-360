@@ -74,7 +74,6 @@ export class PanoramaViewer extends Emitter<Events> {
 
     this.hotspots = new Hotspots(opts.canvas, opts.labelRoot);
     this.hotspots.camera = this.camera.camera;
-    this.scenes.add('hotspots', this.hotspots.mesh, 1);
     this.hotspots.on('select', (h) => this.emit('hotspot', h));
 
     this.perf = new PerformanceMonitor(this.renderer, this.renderer.renderer, q.minPixelRatio, q.maxPixelRatio);
@@ -90,7 +89,7 @@ export class PanoramaViewer extends Emitter<Events> {
         let moved = false;
         if (this.gyro?.enabled) moved = this.gyro.update(dt) || moved;
         moved = this.camera.update(dt) || moved;
-        if (moved) { this.sphere.tick(dt); this.hotspots.tick(dt); }
+        if (moved) this.sphere.tick(dt);
         return moved;
       }),
       loop.addRenderer(() => this.renderer.render(this.scenes.scene, this.camera.camera)),

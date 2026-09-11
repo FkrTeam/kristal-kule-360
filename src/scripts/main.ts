@@ -59,9 +59,10 @@ async function boot(): Promise<void> {
 
   viewer.on('hotspot', (h) => {
     viewer.flyTo(h.view ?? { yaw: h.yaw, pitch: h.pitch, fov: 50 });
+    viewer.hotspots.setSelected(h.id);
     showInfo(h);
   });
-  $('#info-close').addEventListener('click', () => { info.hidden = true; });
+  $('#info-close').addEventListener('click', () => { info.hidden = true; viewer.hotspots.setSelected(null); });
 
   function showInfo(h: HotspotDef): void {
     $('#info-icon').innerHTML = iconSvg(h.icon, 18);
