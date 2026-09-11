@@ -51,7 +51,6 @@ html.is-editing #stage-canvas { cursor: crosshair; }
 }
 .hotspot-pin { width: 30px; height: 40px; display: block; }
 .hotspot-pin-body { fill: var(--pin); }
-.hotspot-pin-icon { fill: none; stroke: var(--pin); stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
 .hotspot:hover .hotspot-label, .hotspot.is-active .hotspot-label { transform: translateY(-2px); }
 .hotspot:hover, .hotspot.is-active { filter: drop-shadow(0 4px 8px rgb(0 0 0 / .45)); }
 .hotspot.is-active .hotspot-label { background: var(--color-brass-2); }

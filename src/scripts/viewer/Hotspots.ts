@@ -1,13 +1,13 @@
 /**
- * Hotspots as DOM pins: a coloured map pin (SVG) with the category icon in its
- * white disc and a white label box above it. Each pin is re-positioned by
+ * Hotspots as DOM pins: a coloured map pin (SVG) with a white disc and a white
+ * label box above it. The icon only sets the pin colour and the info panel. Each pin is re-positioned by
  * projecting its direction after every rendered frame, so it sticks to the
  * panorama exactly like a 3D marker would, but stays crisp and clickable.
  */
 import { Vector3, type Camera, type PerspectiveCamera } from 'three';
 import { DEG } from '../utils/math';
 import { Emitter } from '../utils/events';
-import { iconPath, iconColor } from '../icons';
+import { iconColor } from '../icons';
 import type { View } from '../three/CameraController';
 
 export interface HotspotDef {
@@ -60,8 +60,7 @@ export class Hotspots extends Emitter<Events> {
       b.innerHTML =
         `<span class="hotspot-label"></span>` +
         `<svg class="hotspot-pin" viewBox="0 0 32 42" aria-hidden="true">` +
-        `<path class="hotspot-pin-body" d="${PIN}"/><circle cx="16" cy="16" r="9.5" fill="#fff"/>` +
-        `<path class="hotspot-pin-icon" transform="translate(9.4 9.4) scale(0.55)" d="${iconPath(d.icon)}"/></svg>`;
+        `<path class="hotspot-pin-body" d="${PIN}"/><circle cx="16" cy="16" r="7" fill="#fff"/></svg>`;
       b.querySelector('.hotspot-label')!.textContent = d.label;
       b.addEventListener('click', (e) => { e.stopPropagation(); this.select(i); });
       b.addEventListener('pointerenter', () => this.emit('hover', d));
